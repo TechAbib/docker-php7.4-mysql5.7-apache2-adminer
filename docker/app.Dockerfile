@@ -9,6 +9,7 @@ ARG uid
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     git \
+    nano \
     curl \
     libpng-dev \
     libonig-dev \
@@ -30,9 +31,11 @@ RUN useradd -G www-data,root -u $uid -d /home/$user $user
 RUN mkdir -p /home/$user/.composer && \
     chown -R $user:$user /home/$user
 
+#WORKDIR /var/www
+
+#CMD bash -c "composer install --ignore-platform-reqs --no-scripts"
+
 # Set working directory
 WORKDIR ${PROJECT_ROOT_FOLDER}
-
-CMD bash -c "composer install"
 
 USER $user
