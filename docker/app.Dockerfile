@@ -33,4 +33,6 @@ RUN mkdir -p /home/$user/.composer && \
 # Set working directory
 WORKDIR ${PROJECT_ROOT_FOLDER}
 
+CMD bash -c "composer install"
+
 USER $user
