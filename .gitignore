@@ -1,3 +1,3 @@
 .env
 /app
-/laradock
+/docker/mysql/data/*

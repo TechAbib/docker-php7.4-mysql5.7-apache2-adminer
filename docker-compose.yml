@@ -35,11 +35,19 @@ services:
     ports:
       - ${MYSQL_PORT}:3306
     volumes:
-      - ${MYSQL_ENTRYPOINT_INITDB}:/docker-entrypoint-initdb.d
+      - ./docker/mysql/data:/var/lib/mysql
+      - ./docker/mysql/scripts:/docker-entrypoint-initdb.d
     depends_on:
       - app
     networks:
       - docker-php74-application
+
+### Adminer ##############################################
+  adminer:
+      image: adminer
+      restart: always
+      ports:
+        - 8080:8080
 
 ### Apache Server ########################################
   apache2:
