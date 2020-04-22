@@ -1,10 +1,19 @@
 # PHP 7.4 Project
 
-#### Copy / Git Pull your project files into the app folder.
+##### Used images:
 
-#### Copy the .env.example file, and rename it to .env
+* [php:7.4-fpm] - php 7.4
+* [mysql:5.7] - mysql
+* [adminer:4.7.6-standalon] - adminer
+* [webdevops/apache:ubuntu-18.04] - apache2
 
-#### Modify the .env file as you want
+- https://hub.docker.com/
+
+#### 1. Copy / Git Pull your project files into the app folder.
+
+#### 2. Copy the .env.example file, and rename it to .env
+
+#### 3. Modify the .env file as you want
 
 ```sh
 ###########################################################
@@ -55,9 +64,11 @@ MYSQL_ENTRYPOINT_INITDB=./docker/mysql/scripts
 REDIS_PORT=6379
 ```
 
-#### Install the project with Docker
+#### 4. Install the project with Docker
 ```sh
 $ docker-compose --build -d
 $ docker exec -i ${APP_NAME}_mysql sh -c 'exec mysql -uroot -p"$MYSQL_ROOT_PASSWORD" < /docker-entrypoint-initdb.d/init.sql'
 $ docker exec -it ${APP_NAME}_application bash
 ```
+
+#### 5. It should be run on http://localhost
