@@ -58,10 +58,6 @@ MYSQL_ROOT_PASSWORD=root
 MYSQL_PASSWORD=root
 MYSQL_PORT=3306
 MYSQL_ENTRYPOINT_INITDB=./docker/mysql/scripts
-
-### REDIS #################################################
-
-REDIS_PORT=6379
 ```
 
 #### 4. Install the project with Docker
